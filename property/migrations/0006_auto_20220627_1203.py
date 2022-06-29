@@ -16,21 +16,29 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='flat',
             name='liked_by',
-            field=models.ManyToManyField(related_name='Liked_flats', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(related_name='Liked_flats',
+                                         to=settings.AUTH_USER_MODEL),
         ),
         migrations.AlterField(
             model_name='complaint',
             name='compaint_text',
-            field=models.TextField(blank=True, max_length=250, verbose_name='Текст жалобы'),
+            field=models.TextField(blank=True, max_length=250,
+                                   verbose_name='Текст жалобы'),
         ),
         migrations.AlterField(
             model_name='complaint',
             name='flat',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='property.Flat', verbose_name='Квартира, на которую жаловаилсь'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to='property.Flat',
+                verbose_name='Квартира, на которую жаловаилсь'),
         ),
         migrations.AlterField(
             model_name='complaint',
             name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Кто жаловался'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL,
+                verbose_name='Кто жаловался'),
         ),
     ]

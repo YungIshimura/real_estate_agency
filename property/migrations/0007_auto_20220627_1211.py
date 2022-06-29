@@ -15,11 +15,18 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='flat',
             name='owner_pure_phone',
-            field=phonenumber_field.modelfields.PhoneNumberField(blank=True, max_length=128, region=None, verbose_name='Нормализированный номер владельца'),
+            field=phonenumber_field.modelfields.PhoneNumberField(
+                blank=True,
+                max_length=128,
+                region=None,
+                verbose_name='Нормализированный номер владельца'),
         ),
         migrations.AlterField(
             model_name='flat',
             name='liked_by',
-            field=models.ManyToManyField(related_name='Liked_flats', to=settings.AUTH_USER_MODEL, verbose_name='Кто лайкнул'),
+            field=models.ManyToManyField(
+                related_name='Liked_flats',
+                to=settings.AUTH_USER_MODEL,
+                verbose_name='Кто лайкнул'),
         ),
     ]
