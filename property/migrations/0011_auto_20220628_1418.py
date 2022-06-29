@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
         Owner = apps.get_model('property', 'Owner')
         Flat = apps.get_model('property', 'Flat')
         for flat in Flat.objects.all():
-            owner = Owner.objects.filter(owner = flat.owner).first()
+            owner = Owner.objects.filter(owner=flat.owner).first()
             owner.flats.add(flat)
 
     dependencies = [
